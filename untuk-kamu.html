@@ -1,0 +1,814 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Untuk Kamu 🤍</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: Georgia, serif;
+            min-height: 100vh;
+            color: #5b4050;
+
+            background:
+                radial-gradient(circle at top left, #ffdce8, transparent 35%),
+                radial-gradient(circle at bottom right, #e8d9ff, transparent 35%),
+                linear-gradient(135deg, #fff5f8, #f8efff);
+
+            overflow-x: hidden;
+        }
+
+        /* ===================================
+           ❤️ LOVE YANG TERUS BERGERAK
+           =================================== */
+
+        .love-container {
+            position: fixed;
+            inset: 0;
+            overflow: hidden;
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        .floating-heart {
+            position: absolute;
+            bottom: -50px;
+
+            color: #ff8fb1;
+            text-shadow:
+                0 0 5px #ffb6ca,
+                0 0 15px #ff8fb1,
+                0 0 25px rgba(255, 105, 150, 0.6);
+
+            animation: naik linear forwards;
+            opacity: 0;
+        }
+
+        @keyframes naik {
+
+            0% {
+                transform:
+                    translateY(0)
+                    translateX(0)
+                    rotate(0deg)
+                    scale(0.7);
+
+                opacity: 0;
+            }
+
+            10% {
+                opacity: 0.8;
+            }
+
+            50% {
+                transform:
+                    translateY(-50vh)
+                    translateX(30px)
+                    rotate(15deg)
+                    scale(1);
+            }
+
+            90% {
+                opacity: 0.5;
+            }
+
+            100% {
+                transform:
+                    translateY(-115vh)
+                    translateX(-40px)
+                    rotate(-20deg)
+                    scale(1.2);
+
+                opacity: 0;
+            }
+        }
+
+        /* ===================================
+           ISI WEBSITE
+           =================================== */
+
+        .container {
+            position: relative;
+            z-index: 2;
+
+            width: 90%;
+            max-width: 800px;
+            margin: auto;
+            padding: 70px 0;
+        }
+
+        .card {
+            background: rgba(255, 255, 255, 0.75);
+            backdrop-filter: blur(12px);
+
+            border: 1px solid rgba(255, 255, 255, 0.8);
+            border-radius: 30px;
+
+            padding: 45px;
+            margin-bottom: 30px;
+
+            box-shadow:
+                0 20px 50px rgba(150, 100, 130, 0.15);
+
+            animation: muncul 1.2s ease;
+        }
+
+        @keyframes muncul {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .opening {
+            text-align: center;
+        }
+
+        .small {
+            font-size: 14px;
+            letter-spacing: 3px;
+            color: #b47a94;
+            text-transform: uppercase;
+        }
+
+        h1 {
+            margin-top: 15px;
+            font-size: 45px;
+            color: #a75b7c;
+        }
+
+        h2 {
+            color: #a75b7c;
+            margin-bottom: 20px;
+        }
+
+        p {
+            font-size: 17px;
+            line-height: 1.9;
+            margin-bottom: 18px;
+        }
+
+        .cute {
+            font-size: 35px;
+            margin: 20px 0;
+        }
+
+        button {
+            border: none;
+
+            background:
+                linear-gradient(
+                    135deg,
+                    #e889aa,
+                    #b978a0
+                );
+
+            color: white;
+
+            padding: 14px 28px;
+            border-radius: 30px;
+
+            font-size: 16px;
+            font-family: inherit;
+
+            cursor: pointer;
+
+            box-shadow:
+                0 8px 20px rgba(180, 100, 140, 0.25);
+
+            transition: 0.3s;
+        }
+
+        button:hover {
+            transform:
+                translateY(-3px)
+                scale(1.04);
+
+            box-shadow:
+                0 12px 30px rgba(180, 100, 140, 0.4);
+        }
+
+        #secret {
+            display: none;
+
+            margin-top: 25px;
+            padding: 25px;
+
+            border-radius: 20px;
+
+            background: #fff0f5;
+            border: 1px dashed #d88ba8;
+
+            animation: muncul 0.8s ease;
+        }
+
+        .quote {
+            border-left: 4px solid #dc91ae;
+
+            padding-left: 20px;
+            margin: 25px 0;
+
+            font-style: italic;
+            color: #765363;
+        }
+
+        .ending {
+            text-align: center;
+        }
+
+        .signature {
+            margin-top: 35px;
+
+            font-size: 18px;
+            color: #a75b7c;
+        }
+
+        footer {
+            position: relative;
+            z-index: 2;
+
+            text-align: center;
+
+            color: #a77c90;
+            font-size: 13px;
+
+            padding-bottom: 30px;
+        }
+
+        @media (max-width: 600px) {
+
+            .card {
+                padding: 28px 22px;
+            }
+
+            h1 {
+                font-size: 34px;
+            }
+
+            p {
+                font-size: 16px;
+            }
+        }
+
+
+        /* =====================================
+           💌 TAMBAHAN:
+           PESAN DENGAN ANIMASI TYPING
+           ===================================== */
+
+        #typingMessage {
+            display: none;
+
+            margin-top: 30px;
+            padding: 28px;
+
+            border-radius: 20px;
+
+            background: rgba(255, 240, 245, 0.85);
+
+            border: 1px dashed #d88ba8;
+
+            text-align: left;
+
+            animation: muncul 0.8s ease;
+
+            box-shadow:
+                inset 0 0 20px rgba(220, 145, 174, 0.08);
+        }
+
+        #typingText {
+            white-space: pre-line;
+            min-height: 100px;
+        }
+
+        .typing-cursor {
+            display: inline-block;
+
+            width: 2px;
+            height: 20px;
+
+            background: #a75b7c;
+
+            margin-left: 4px;
+
+            vertical-align: middle;
+
+            animation: kedip 0.7s infinite;
+        }
+
+        @keyframes kedip {
+            0%, 49% {
+                opacity: 1;
+            }
+
+            50%, 100% {
+                opacity: 0;
+            }
+        }
+
+        #continueButton {
+            display: none;
+
+            margin-top: 15px;
+        }
+
+    </style>
+</head>
+
+<body>
+
+
+    <!-- =====================================
+         CONTAINER UNTUK LOVE
+         ===================================== -->
+
+    <div class="love-container" id="loveContainer"></div>
+
+
+    <!-- =====================================
+         ISI WEBSITE
+         ===================================== -->
+
+    <div class="container">
+
+        <section class="card opening">
+
+            <div class="small">
+                Sebuah pesan kecil
+            </div>
+
+            <h1>
+                Untuk Kamu 🤍
+            </h1>
+
+            <div class="cute">
+                🌷 ♡ 🌷
+            </div>
+
+            <p>
+                Ada beberapa hal yang selama ini
+                belum pernah gue ceritakan.
+            </p>
+
+            <p>
+                Jadi kali ini, gue cuma mau jujur.
+            </p>
+
+            <button onclick="showMessage()">
+                Buka Pesannya 💌
+            </button>
+
+
+            <!-- =====================================
+                 💌 TAMBAHAN:
+                 PESAN TYPING
+                 ===================================== -->
+
+            <div id="typingMessage">
+
+                <p id="typingText"></p>
+
+                <span
+                    class="typing-cursor"
+                    id="typingCursor">
+                </span>
+
+                <br>
+
+                <button
+                    id="continueButton"
+                    onclick="continueReading()">
+                    Lanjut membaca 🤍
+                </button>
+
+            </div>
+
+        </section>
+
+
+        <section class="card">
+
+            <h2>
+                Gue masih ingat...
+            </h2>
+
+            <p>
+                Gue masih ingat bagaimana semuanya dimulai.
+                Entah kenapa, dari sekian banyak orang,
+                hati gue malah memilih kamu.
+            </p>
+
+            <p>
+                Waktu itu mungkin gue nggak sadar
+                seberapa berartinya kamu buat gue.
+                Tapi setelah semuanya selesai,
+                baru gue sadar kalau ternyata
+                perasaan itu nggak semudah itu buat hilang.
+            </p>
+
+        </section>
+
+
+        <section class="card">
+
+            <h2>
+                Tentang kita...
+            </h2>
+
+            <p>
+                Kita pernah punya cerita.
+                Pernah ketawa bareng.
+                Pernah saling peduli.
+                Dan pernah jadi bagian penting
+                dalam hidup satu sama lain.
+            </p>
+
+            <div class="quote">
+                "Mungkin hubungan kita sudah selesai,
+                tapi ternyata perasaan gue belum
+                benar-benar selesai."
+            </div>
+
+            <p>
+                Gue gak tahu, kenapa alasan kamu yang memilih pergi.
+                Dan gue juga sadar gue nggak bisa
+                memaksa seseorang untuk tetap tinggal.
+            </p>
+
+        </section>
+
+
+        <section class="card">
+
+            <h2>
+                Tapi kalau gue boleh jujur...
+            </h2>
+
+            <p>
+                Sampai sekarang, gue masih suka sama kamu.
+            </p>
+
+            <p>
+                Bukan karena gue nggak bisa menemukan
+                orang lain.
+                Bukan juga karena gue ingin memaksa
+                kita kembali seperti dulu.
+            </p>
+
+            <p>
+                Gue cuma masih punya sedikit rasa
+                yang ternyata belum berhasil gue tinggalkan.
+            </p>
+
+            <p>
+                Dan mungkin, mengakui hal itu adalah
+                satu-satunya cara supaya gue bisa
+                berdamai dengan perasaan gue sendiri.
+            </p>
+
+        </section>
+
+
+        <section class="card opening">
+
+            <h2>
+                Masih ada satu hal...
+            </h2>
+
+            <p>
+                Kalau kamu benar-benar ingin tahu,
+                tekan tombol di bawah.
+            </p>
+
+            <button onclick="showSecret()">
+                Buka pesan terakhir 💗
+            </button>
+
+            <div id="secret">
+
+                <p>
+                    Gue nggak tahu apakah suatu hari
+                    kamu bakal membaca semua ini.
+                </p>
+
+                <p>
+                    Tapi kalau kamu membacanya,
+                    gue cuma ingin kamu tahu satu hal:
+                </p>
+
+                <p>
+                    <strong>
+                        Pernah mencintai kamu adalah
+                        salah satu hal yang paling
+                        berkesan dalam hidup gue.
+                    </strong>
+                </p>
+
+                <p>
+                    Dan meskipun akhirnya kita nggak
+                    bersama, gue tetap berharap kamu
+                    menemukan kebahagiaanmu.
+                </p>
+
+                <div class="cute">
+                    🌸 🤍 🌸
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <section class="card ending">
+
+            <h2>
+                Terima kasih.
+            </h2>
+
+            <p>
+                Terima kasih karena pernah hadir.
+                Terima kasih karena pernah membuat
+                gue bahagia.
+            </p>
+
+            <p>
+                Mungkin cerita kita berhenti di sini.
+                Tapi gue akan selalu menghargai
+                bagian cerita yang pernah kita punya.
+            </p>
+
+            <p>
+                Semoga kamu bahagia.
+                Benar-benar bahagia.
+            </p>
+
+            <div class="signature">
+                Dari seseorang yang<br>
+                pernah dan mungkin masih<br>
+                menyayangimu. 🤍
+            </div>
+
+        </section>
+
+    </div>
+
+
+    <footer>
+        Dibuat dengan sedikit keberanian
+        dan banyak perasaan ♡
+    </footer>
+
+
+    <script>
+
+        /* =====================================
+           ❤️ MEMBUAT LOVE TERUS-MENERUS
+           ===================================== */
+
+        const loveContainer =
+            document.getElementById("loveContainer");
+
+
+        function createHeart() {
+
+            const heart =
+                document.createElement("div");
+
+            heart.classList.add("floating-heart");
+
+            // Bentuk love
+            const bentukLove = [
+                "♥",
+                "♡",
+                "❤",
+                "💗",
+                "💖"
+            ];
+
+            heart.innerHTML =
+                bentukLove[
+                    Math.floor(
+                        Math.random() * bentukLove.length
+                    )
+                ];
+
+            // Posisi random
+            heart.style.left =
+                Math.random() * 100 + "vw";
+
+
+            // Ukuran random
+            const ukuran =
+                Math.random() * 25 + 15;
+
+            heart.style.fontSize =
+                ukuran + "px";
+
+
+            // Kecepatan random
+            const durasi =
+                Math.random() * 5 + 5;
+
+            heart.style.animationDuration =
+                durasi + "s";
+
+
+            // Sedikit variasi warna
+            const warna = [
+                "#ff8fab",
+                "#ff6f9f",
+                "#e98bb5",
+                "#d98bb8",
+                "#ffb3c6"
+            ];
+
+            heart.style.color =
+                warna[
+                    Math.floor(
+                        Math.random() * warna.length
+                    )
+                ];
+
+
+            loveContainer.appendChild(heart);
+
+
+            // Hapus setelah animasi selesai
+            setTimeout(() => {
+
+                heart.remove();
+
+            }, durasi * 1000);
+
+        }
+
+
+        /*
+         * LOVE BARU MUNCUL SETIAP 300ms.
+         * Jadi efeknya akan terus berjalan.
+         */
+
+        setInterval(createHeart, 300);
+
+
+        // Buat beberapa love langsung
+        // ketika website pertama kali dibuka.
+
+        for (let i = 0; i < 15; i++) {
+
+            setTimeout(
+                createHeart,
+                i * 150
+            );
+
+        }
+
+
+        /* =====================================
+           💌 TOMBOL PESAN
+           ===================================== */
+
+        function showMessage() {
+
+            const typingMessage =
+                document.getElementById("typingMessage");
+
+            const typingText =
+                document.getElementById("typingText");
+
+            const typingCursor =
+                document.getElementById("typingCursor");
+
+            const continueButton =
+                document.getElementById("continueButton");
+
+
+            // Tampilkan kotak pesan
+            typingMessage.style.display = "block";
+
+
+            // Reset isi
+            typingText.innerHTML = "";
+
+            continueButton.style.display = "none";
+
+            typingCursor.style.display =
+                "inline-block";
+
+
+            // Pesan yang akan diketik
+            const message =
+`Gue sebenarnya nggak tahu harus mulai dari mana.
+
+Ada banyak hal yang ingin gue sampaikan,
+tapi rasanya semuanya terlalu sulit
+kalau harus diucapkan secara langsung.
+
+Jadi untuk kali ini,
+gue memilih menuliskannya di sini.
+
+Mungkin setelah ini semuanya akan terasa sedikit lebih ringan. 🤍`;
+
+
+            let index = 0;
+
+
+            // Cegah interval lama
+            if (window.typingInterval) {
+
+                clearInterval(
+                    window.typingInterval
+                );
+
+            }
+
+
+            // Efek typing
+            window.typingInterval =
+                setInterval(() => {
+
+                    typingText.innerHTML +=
+                        message[index];
+
+                    index++;
+
+
+                    // Kalau sudah selesai
+                    if (index >= message.length) {
+
+                        clearInterval(
+                            window.typingInterval
+                        );
+
+                        typingCursor.style.display =
+                            "none";
+
+                        continueButton.style.display =
+                            "inline-block";
+
+                    }
+
+                }, 35);
+
+
+            // Scroll perlahan menuju pesan
+            setTimeout(() => {
+
+                typingMessage.scrollIntoView({
+                    behavior: "smooth",
+                    block: "center"
+                });
+
+            }, 100);
+
+        }
+
+
+        /* =====================================
+           🤍 LANJUT MEMBACA
+           ===================================== */
+
+        function continueReading() {
+
+            const nextSection =
+                document.querySelectorAll(".card")[1];
+
+
+            nextSection.scrollIntoView({
+                behavior: "smooth",
+                block: "start"
+            });
+
+        }
+
+
+        /* =====================================
+           💗 PESAN RAHASIA
+           ===================================== */
+
+        function showSecret() {
+
+            const secret =
+                document.getElementById("secret");
+
+            secret.style.display = "block";
+
+        }
+
+    </script>
+
+</body>
+</html>
